@@ -107,7 +107,7 @@ class FRPO(ActorCritic):
                        self.plh["terminal_flag"]: flag}
             if update_counter%self.summary_period==0:
                 summ, _ = sess.run([merged,self.train], feed_dict=feed_dict)
-                writer.add_summary(summ)
+                writer.add_summary(summ, update_counter)
             else:
                 sess.run(self.train, feed_dict=feed_dict)
 
