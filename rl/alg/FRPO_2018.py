@@ -1,6 +1,7 @@
 import tensorflow as tf
 import threading
 import numpy as np
+from termcolor import colored
 
 from rl.core.actor_critic import ActorCritic
 from rl.core              import utils
@@ -136,3 +137,60 @@ class FRPO(ActorCritic):
         return tf.Summary(value=[tf.Summary.Value(tag=tag, histo=hist)])
 
 
+
+
+
+
+class ExperiencePool:
+    def __init__(self, obs_dim, act_dim, capacity=2000):
+        print(colored("storage formated by (state, action, prob, rewards, next state, done flags)", "red"))
+        self.obs_dim     = obs_dim
+        self.act_dim     = act_dim
+        self.capacity    = capacity
+        self.ptrIdx      = 0
+        self.full        = 0
+
+        self.trajectory  = [None for _ in range(capacity)]
+
+        self._state_range      = (                        0, obs_dim)
+        self._action_range     = (     self._state_range[1], self._state_range[1]+act_dim)
+        self._prob_range       = (    self._action_range[1], self._action_range[1]+1)
+        self._reward_range     = (      self._prob_range[1], self._prob_range[1]+1)
+        self._next_state_range = (    self._reward_range[1], self._reward_range[1]+obs_dim)
+        self._flag_range       = (self._next_state_range[1], self._next_state_range[1]+1)
+
+        self._free_to_take = threading.Event()
+
+    def store(self, trajectory):
+        self._free_to_take.clear()
+        self.trajectory[self.ptrIdx] = np.array(trajectory)
+        self.ptrIdx += 1
+        if self.ptrIdx == self.capacity:
+            self.full += 1
+            self.ptrIdx = 0
+        self._free_to_take.set()
+
+    def sampling(self):
+        idx = self.sample_idx()
+        return self.take(idx)
+
+    def sample_idx(self):
+        if self.full:
+            return np.random.randint(0,self.capacity)
+        else:
+            return np.random.randint(0,self.ptrIdx)
+
+    def take(self, idx):
+        self._free_to_take.wait()
+        traj = self.trajectory[idx]
+        #traj = np.vstack(traj)
+        return self.traj_to_batch(traj)
+
+    def traj_to_batch(self, traj):
+        states   = traj[:,      self._state_range[0]: self._state_range[1]]
+        actions  = traj[:,     self._action_range[0]: self._action_range[1]]
+        probs    = traj[:,       self._prob_range[0]: self._prob_range[1]]
+        rewards  = traj[:,     self._reward_range[0]: self._reward_range[1]]
+        state_s  = traj[:, self._next_state_range[0]: self._next_state_range[1]]
+        flags    = traj[:,       self._flag_range[0]: self._flag_range[1]]
+        return states, actions, probs.reshape(-1), rewards.reshape(-1), state_s, flags.reshape(-1)
