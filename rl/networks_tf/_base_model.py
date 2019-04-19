@@ -11,7 +11,9 @@ class _BaseModel:
         
     @property
     def vars(self):
-        return tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES, scope=self.name)
+        total_v = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES)
+        VoI = [v for v in total_v if self._name in v.name.split("/")]
+        return VoI
 
     @property
     def name(self):

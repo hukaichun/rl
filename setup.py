@@ -7,8 +7,7 @@ setup(
     author = "hu kai chun",
     author_email = "hu.kaichun@gmail.com",
     license = "MIT",
-    packages = ["rl.rl_tf", "rl.rl_tf.core",
-                "rl.networks_tf", "rl.utils"],
+    packages = ["rl.core", "rl.networks_tf", "rl.alg"],
     # install_requires=[],
     zip_safe = False
 )

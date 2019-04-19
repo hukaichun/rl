@@ -12,7 +12,8 @@ def retrace_tf(
         _adv  = _td[_idx] + discountFactor*(1.-_T[_idx])*_adv2
         _adv2 = _rho[_idx]*_adv
         _rv = _v[_idx] + _adv2
-        return _idx-1, _adv2, _td, _v, _rho, _T, _outA, _outV
+        return (_idx-1, _adv2, _td, _v, _rho, _T, 
+                _outA.write(_idx, _adv), _outV.write(_idx, _rv))
 
     def condition(_idx, _adv2, _td, _v, _rho, _T, _outA, _outV):
         return _idx > -1
