@@ -10,5 +10,5 @@
 ## Usage
 see
 ```bash
-  demo/FRPO_2018/
+  demo/FRPO_hover/
 ```
