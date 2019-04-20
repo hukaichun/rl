@@ -5,15 +5,13 @@ import numpy as np
 
 from QuadcopterControl import QuadcopterControl
 
-from rl.alg.auxiliary import RL_plh_2018
-from rl.alg.FRPO_2018 import FRPO, ExperiencePool
+from rl.alg.FRPO_2018 import FRPO, ExperiencePool, RL_plh
 from rl.networks_tf.dense import GaussianPolicy, Value
 
-
+tick = int(time.time())
 flags = tf.app.flags
-flags.DEFINE_string("proj", "FRPO_No_dead_zone", "proj name")
+flags.DEFINE_string("proj", "FRPO_No_dead_zone_{}".format(tick), "proj name")
 flags.DEFINE_string("model_dir", "./RL_models/", "Model dir")
-flags.DEFINE_string("env_id", "Pendulum-v0", "env")
 flags.DEFINE_integer("save_period", 1000, "save period")
 
 flags.DEFINE_integer("max_traj", 100000, "max trajectory num")
@@ -35,10 +33,10 @@ def main(unsed_arg):
     env = QuadcopterControl()
     state_shape = (18,)
     action_shape = (4,)
-    obs, plh = RL_plh_2018(state_shape, action_shape)
+    obs, plh = RL_plh(state_shape, action_shape)
     policy_model = GaussianPolicy(action_shape[0])
     value_model = Value()
-    ER = ExperiencePool(state_shape[0], action_shape[0], 5000)
+    ER = ExperiencePool(state_shape[0], action_shape[0], FLAGS.buffer_size)
     alg = FRPO(obs=obs, 
                 plh=plh, 
                 policy_model=policy_model, 
@@ -50,7 +48,7 @@ def main(unsed_arg):
     merged = tf.summary.merge_all()
 
 
-    tick = int(time.time())
+    
     init_op = tf.global_variables_initializer()
     with tf.Session() as sess:
         writer = tf.summary.FileWriter("./logs/{}".format(tick), sess.graph)
@@ -68,21 +66,12 @@ def main(unsed_arg):
         sigmaACC = [None for _ in range(traj_len)]
 
         s = env.reset()
-        for trajCounter in range(max_traj):
+        for trajCounter in range(max_traj+1):
             traj = []
             for i in range(traj_len):
                 (act, prob), sigma = sess.run([alg.respond, alg.sigma],
                                               {obs: [s]})
                 sigmaACC[i] = sigma
-                if np.isnan(act).any():
-                    print("state:{}\n"
-                          "act:{}\n"
-                          "prob:{}\n"
-                          "sigma:{}".format(s, act, prob, sigma))
-                    alg.ER_training_coord.request_stop()
-                    alg.ER_training_coord.join([off_policy_train])
-                    print("act include nan")
-                    assert False
 
                 s_, r, done, _ = env.step(act[0])
                 item = (s, act[0], prob[0], (r*50+0.5)*2, s_, done)
@@ -99,9 +88,7 @@ def main(unsed_arg):
             summSigma = alg.log_histogram("Sigma", sigmaACC)
             writer.add_summary(summSigma, trajCounter)
             alg.ER.store(traj)
-            if trajCounter < 10:
-                pass
-            else:
+            if trajCounter > 10:
                 alg.ER_training.set()
             
             if trajCounter % save_period == 0:

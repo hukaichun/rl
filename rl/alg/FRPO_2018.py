@@ -194,3 +194,18 @@ class ExperiencePool:
         state_s  = traj[:, self._next_state_range[0]: self._next_state_range[1]]
         flags    = traj[:,       self._flag_range[0]: self._flag_range[1]]
         return states, actions, probs.reshape(-1), rewards.reshape(-1), state_s, flags.reshape(-1)
+
+def RL_plh(state_shape, act_shape):
+    plh = {}
+    with tf.name_scope("env"):
+        obs                  = tf.placeholder(tf.float32, (None,)+ state_shape, name="observation")
+
+    with tf.name_scope("experience_info"):
+        plh["state"]         = tf.placeholder(tf.float32, (None,)+ state_shape, name="state")
+        plh["action"]        = tf.placeholder(tf.float32, (None,)+ act_shape,   name="action")
+        plh["log_mu"]        = tf.placeholder(tf.float32, (None,),                name="log_mu")
+        plh["reward"]        = tf.placeholder(tf.float32, (None,),              name="reward")
+        plh["next_state"]    = tf.placeholder(tf.float32, (None,)+ state_shape, name="obs_next")
+        plh["terminal_flag"] = tf.placeholder(tf.float32, (None,),              name="term")
+
+    return obs, plh
