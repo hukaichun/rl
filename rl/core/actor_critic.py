@@ -87,4 +87,31 @@ class ActorCritic:
         return log_ratio, rho
 
 
+class NativeActorCritic:
+    def __init__(self,
+        obs,
+        policy_model,
+        value_model
+    ):
+        
+        self.ops = obs
+        
+        self.policy_model=policy_model
+        self.value_model=value_model
+        
+        with tf.name_scope("Actor_Critic"):
+            (self.act, 
+             self.value) = self.build_Actor_Critic(obs)
+    
+    def build_Actor_Critic(self, 
+        obs0
+    ):
+        (self.pi, 
+         self.mu_pi, 
+         self.sigma_pi) = self.policy_model(obs0)        
+        value = self.value_model(obs0)
+
+        return self.mu_pi, value
+
+
     
