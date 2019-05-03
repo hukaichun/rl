@@ -4,7 +4,7 @@
 ```bash
     git clone <rl.git>
     cd rl
-    pip3 install -I 
+    pip3 install -I .
 ```
 
 ## Usage
