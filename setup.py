@@ -8,6 +8,6 @@ setup(
     author_email = "hu.kaichun@gmail.com",
     license = "MIT",
     packages = ["rl.core", "rl.networks_tf", "rl.alg"],
-    # install_requires=[],
+    install_requires=["tensorflow-probability"],
     zip_safe = False
 )
