@@ -12,8 +12,8 @@ class DenseNN:
 
         KERAS_DENSE = tf.keras.layers.Dense
         act = tf.nn.relu
-        self.maps = [KERAS_DENSE(unit, act) for unit in widths]
-        self.maps.append(KERAS_DENSE(output_unit))
+        self.maps = [KERAS_DENSE(unit, act, name="Dense_{}".format(idx)) for idx, unit in enumerate(widths)]
+        self.maps.append(KERAS_DENSE(output_unit, name="Finial"))
 
     def __call__(self, feature, buffer=[]):
         raise NotImplementedError("NotImplementedError")
