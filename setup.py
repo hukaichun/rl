@@ -7,8 +7,8 @@ setup(
     author = "hu kai chun",
     author_email = "hu.kaichun@gmail.com",
     license = "",
-    packages = ["ReinforementLearning",
-                "ReinforementLearning.util"],
+    packages = ["ReinforcementLearning",
+                "ReinforcementLearning.util"],
     install_requires=["tensorflow-probability"],
     zip_safe = False
 )
