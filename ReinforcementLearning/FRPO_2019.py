@@ -1,6 +1,6 @@
 import tensorflow as tf
 import tensorflow_probability as tfp
-from util import IMPALA
+from .util import IMPALA
 import numpy as np
 
 obs_dim = (18,)
@@ -140,36 +140,3 @@ class Critic(tf.Module):
 
         return state_value, advantage
 
-
-
-if __name__ == "__main__":
-    agent = Actor()
-    critic = Critic(.99)
-
-    num = 5
-    fake_obs      = np.random.random((num, 18)).astype("float32")
-    fake_obs_next = np.random.random((num, 18)).astype("float32")
-    fake_reward   = np.random.random((num, 1)).astype("float32")
-    fake_term     = np.random.randint(2, size=(num,1)).astype("float32")
-
-    value = critic.value(fake_obs).numpy()
-    next_value = critic.value(fake_obs_next).numpy()
-    adv_np = fake_reward + 0.99*(1-fake_term)*next_value-value
-    result = critic.advantage([fake_obs, fake_reward, fake_term, fake_obs_next])
-    print(result.numpy())
-    print(adv_np)
-    tf.keras.utils.plot_model(critic.advantage, show_shapes=True)
-
-
-# import numpy as np
-# import time
-
-# fake_obs = np.random.random((3,18)).astype("float32")
-# fake_adv = np.random.random(3).astype("float32")
-# log_p, act = agent.act(fake_obs)
-# agent.train(fake_obs, act, fake_adv, log_p)
-# print(agent.exp_rate(fake_obs))
-# tick = time.time()
-# for _ in range(1000):
-#     agent.train(fake_obs, act, fake_adv, log_p)
-# print(time.time()-tick)
