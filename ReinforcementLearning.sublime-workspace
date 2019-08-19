@@ -4,6 +4,94 @@
 		"selected_items":
 		[
 			[
+				"reduce",
+				"reduce_sum"
+			],
+			[
+				"fe",
+				"feature"
+			],
+			[
+				"cli",
+				"clipped_act"
+			],
+			[
+				"ac",
+				"actor"
+			],
+			[
+				"los",
+				"loss_total"
+			],
+			[
+				"lo",
+				"loss_regu"
+			],
+			[
+				"loss",
+				"loss_main"
+			],
+			[
+				"hi",
+				"loss_hinge"
+			],
+			[
+				"log_p",
+				"log_prob"
+			],
+			[
+				"mag",
+				"marginal_log_p"
+			],
+			[
+				"log",
+				"log_p"
+			],
+			[
+				"reduc",
+				"reduce_mean"
+			],
+			[
+				"nam",
+				"name"
+			],
+			[
+				"cont",
+				"control_output"
+			],
+			[
+				"sof",
+				"softsign"
+			],
+			[
+				"ker",
+				"keras"
+			],
+			[
+				"clipp",
+				"clipped_g"
+			],
+			[
+				"va",
+				"variables"
+			],
+			[
+				"regu",
+				"regular_kernel_l2"
+			],
+			[
+				"na",
+				"name"
+			],
+			[
+				"re",
+				"retrace"
+			],
+			[
+				"fak",
+				"fake_f"
+			],
+			[
 				"sta",
 				"state"
 			],
@@ -12,16 +100,8 @@
 				"next_value"
 			],
 			[
-				"fak",
-				"fake_reward"
-			],
-			[
 				"fa",
 				"fake_obs_next"
-			],
-			[
-				"va",
-				"value"
 			],
 			[
 				"num",
@@ -42,10 +122,6 @@
 			[
 				"stat",
 				"state_value"
-			],
-			[
-				"cli",
-				"clipped_value"
 			],
 			[
 				"obs",
@@ -84,10 +160,6 @@
 				"variables"
 			],
 			[
-				"lo",
-				"log_mu"
-			],
-			[
 				"op",
 				"optimizers"
 			],
@@ -102,18 +174,6 @@
 			[
 				"log_",
 				"log_diff"
-			],
-			[
-				"log",
-				"log_mu"
-			],
-			[
-				"ac",
-				"act_dim"
-			],
-			[
-				"fe",
-				"feature"
 			],
 			[
 				"soft",
@@ -243,26 +303,16 @@
 			"file": "ReinforcementLearning/FRPO_2019.py",
 			"settings":
 			{
-				"buffer_size": 5674,
+				"buffer_size": 3027,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "ReinforcementLearning/test.py",
+			"file": "demo/FRPO_hover/main.py",
 			"settings":
 			{
-				"buffer_size": 44,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ReinforcementLearning/util/layers.py",
-			"settings":
-			{
-				"buffer_size": 1196,
-				"encoding": "UTF-8",
+				"buffer_size": 3292,
 				"line_ending": "Unix"
 			}
 		},
@@ -270,7 +320,25 @@
 			"file": "ReinforcementLearning/util/IMPALA.py",
 			"settings":
 			{
-				"buffer_size": 1471,
+				"buffer_size": 1783,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "demo/FRPO_hover/QuadcopterControl.py",
+			"settings":
+			{
+				"buffer_size": 8897,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test.py",
+			"settings":
+			{
+				"buffer_size": 291,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -341,14 +409,17 @@
 	"expanded_folders":
 	[
 		"/home/kai/Project/ReinforcementLearning",
+		"/home/kai/Project/ReinforcementLearning/demo",
+		"/home/kai/Project/ReinforcementLearning/demo/FRPO_hover",
 		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning",
 		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/util"
 	],
 	"file_history":
 	[
+		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/test.py",
+		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/util/layers.py",
 		"/home/kai/Project/Simulator/quad/simulator/model.py",
 		"/home/kai/Project/Simulator/quad/simulator/util.py",
-		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/test.py",
 		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/util/test.py",
 		"/home/kai/Project/ReinforcementLearning/setup.py",
 		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/backup/core/utils.py",
@@ -402,15 +473,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5674,
+						"buffer_size": 3027,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4507,
-								4507
+								114,
+								3027
 							]
 						],
 						"settings":
@@ -420,67 +491,57 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1456.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"file": "ReinforcementLearning/model.png",
-					"semi_transient": true,
-					"stack_index": 0,
-					"type": "image"
-				},
-				{
-					"buffer": 1,
-					"file": "ReinforcementLearning/test.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 44,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								44,
-								44
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 699.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 2,
-					"file": "ReinforcementLearning/util/layers.py",
-					"semi_transient": false,
+					"buffer": 1,
+					"file": "demo/FRPO_hover/main.py",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1196,
+						"buffer_size": 3292,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								297,
-								297
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1013.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "ReinforcementLearning/util/IMPALA.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1783,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								880,
+								880
 							]
 						],
 						"settings":
@@ -498,19 +559,19 @@
 				},
 				{
 					"buffer": 3,
-					"file": "ReinforcementLearning/util/IMPALA.py",
+					"file": "demo/FRPO_hover/QuadcopterControl.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1471,
+						"buffer_size": 8897,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								63,
-								63
+								4863,
+								4863
 							]
 						],
 						"settings":
@@ -518,6 +579,40 @@
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 30.0,
+						"translation.y": 838.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "test.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 291,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								291,
+								291
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -599,7 +694,7 @@
 		[
 			[
 				"",
-				"~/Project/ReinforcementLearning/ReinforcementLearning.sublime-project"
+				"~/Project/Hierarchical_RL/Hierarchical_RL.sublime-project"
 			]
 		],
 		"width": 380.0
