@@ -300,46 +300,10 @@
 	"buffers":
 	[
 		{
-			"file": "ReinforcementLearning/FRPO_2019.py",
+			"file": "ReinforcementLearning/__init__.py",
 			"settings":
 			{
-				"buffer_size": 3027,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "demo/FRPO_hover/main.py",
-			"settings":
-			{
-				"buffer_size": 3292,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "ReinforcementLearning/util/IMPALA.py",
-			"settings":
-			{
-				"buffer_size": 1783,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "demo/FRPO_hover/QuadcopterControl.py",
-			"settings":
-			{
-				"buffer_size": 8897,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test.py",
-			"settings":
-			{
-				"buffer_size": 291,
-				"encoding": "UTF-8",
+				"buffer_size": 33,
 				"line_ending": "Unix"
 			}
 		}
@@ -409,13 +373,15 @@
 	"expanded_folders":
 	[
 		"/home/kai/Project/ReinforcementLearning",
-		"/home/kai/Project/ReinforcementLearning/demo",
-		"/home/kai/Project/ReinforcementLearning/demo/FRPO_hover",
-		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning",
-		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/util"
+		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning"
 	],
 	"file_history":
 	[
+		"/home/kai/Project/Quadrotor_rl/module/IMPALA.py",
+		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/FRPO_2019.py",
+		"/home/kai/Project/ReinforcementLearning/demo/FRPO_hover/QuadcopterControl.py",
+		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/util/IMPALA.py",
+		"/home/kai/Project/ReinforcementLearning/test.py",
 		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/test.py",
 		"/home/kai/Project/ReinforcementLearning/ReinforcementLearning/util/layers.py",
 		"/home/kai/Project/Simulator/quad/simulator/model.py",
@@ -464,46 +430,16 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "ReinforcementLearning/FRPO_2019.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3027,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								114,
-								3027
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 699.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "demo/FRPO_hover/main.py",
+					"file": "ReinforcementLearning/__init__.py",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 3292,
+						"buffer_size": 33,
 						"regions":
 						{
 						},
@@ -516,109 +452,13 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1013.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ReinforcementLearning/util/IMPALA.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1783,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								880,
-								880
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "demo/FRPO_hover/QuadcopterControl.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8897,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4863,
-								4863
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 30.0,
-						"translation.y": 838.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "test.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 291,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								291,
-								291
-							]
-						],
-						"settings":
-						{
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -641,18 +481,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.541922284294,
 			1.0
 		],
 		"rows":
